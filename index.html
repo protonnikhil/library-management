@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            📚 My Library
+        </div>
+
+        <p class="subtitle">
+            Library Management System
+        </p>
+
+        <nav>
+
+            <button class="nav-btn active" data-section="dashboard">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" data-section="books">
+                📖 Books
+            </button>
+
+            <button class="nav-btn" data-section="members">
+                👥 Members
+            </button>
+
+            <button class="nav-btn" data-section="issues">
+                🔄 Issue / Return
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+
+                <p>
+                    Library Management System
+                </p>
+            </div>
+
+            <button class="refresh-btn" id="refreshBtn">
+                🔄 Refresh
+            </button>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="section active">
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <div class="card-icon">📚</div>
+
+                    <div>
+                        <p>Total Books</p>
+                        <h2 id="totalBooks">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="dashboard-card">
+                    <div class="card-icon">👥</div>
+
+                    <div>
+                        <p>Total Members</p>
+                        <h2 id="totalMembers">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="dashboard-card">
+                    <div class="card-icon">📕</div>
+
+                    <div>
+                        <p>Books Issued</p>
+                        <h2 id="issuedBooks">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="dashboard-card">
+                    <div class="card-icon">⚠️</div>
+
+                    <div>
+                        <p>Overdue Books</p>
+                        <h2 id="overdueBooks">0</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Recent Transactions -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Recent Transactions
+                    </h2>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Book</th>
+
+                                <th>Member</th>
+
+                                <th>Issue Date</th>
+
+                                <th>Due Date</th>
+
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="recentTransactions">
+
+                            <tr>
+
+                                <td colspan="5">
+                                    No transactions yet.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= BOOKS ================= -->
+
+        <section id="books" class="section">
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Book Management
+                    </h2>
+
+                    <button class="primary-btn" id="addBookBtn">
+                        ➕ Add Book
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="bookSearch"
+                    class="search-box"
+                    placeholder="Search books by title, author or ISBN..."
+                >
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>ISBN</th>
+
+                                <th>Title</th>
+
+                                <th>Author</th>
+
+                                <th>Category</th>
+
+                                <th>Total</th>
+
+                                <th>Available</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="booksTable">
+
+                            <tr>
+
+                                <td colspan="8">
+                                    Loading books...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MEMBERS ================= -->
+
+        <section id="members" class="section">
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Member Management
+                    </h2>
+
+                    <button class="primary-btn" id="addMemberBtn">
+                        ➕ Add Member
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="memberSearch"
+                    class="search-box"
+                    placeholder="Search members by name, email or phone..."
+                >
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Name</th>
+
+                                <th>Email</th>
+
+                                <th>Phone</th>
+
+                                <th>Joined Date</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="membersTable">
+
+                            <tr>
+
+                                <td colspan="6">
+                                    Loading members...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ISSUE / RETURN ================= -->
+
+        <section id="issues" class="section">
+
+
+            <!-- Issue Book -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Issue Book
+                    </h2>
+
+                </div>
+
+
+                <form id="issueForm" class="issue-form">
+
+                    <div class="form-group">
+
+                        <label>
+                            Select Book
+                        </label>
+
+                        <select id="issueBook" required>
+
+                            <option value="">
+                                Select a book
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Select Member
+                        </label>
+
+                        <select id="issueMember" required>
+
+                            <option value="">
+                                Select a member
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dueDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        📕 Issue Book
+                    </button>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- Issue Records -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Issue / Return Records
+                    </h2>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Book</th>
+
+                                <th>Member</th>
+
+                                <th>Issue Date</th>
+
+                                <th>Due Date</th>
+
+                                <th>Status</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="issuesTable">
+
+                            <tr>
+
+                                <td colspan="7">
+                                    Loading records...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <div class="modal-box">
+
+            <button
+                class="close-btn"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+
+            <h2 id="modalTitle">
+                Add
+            </h2>
+
+
+            <form id="modalForm">
+
+                <!-- JavaScript will insert fields here -->
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Notification -->
+
+    <div id="toast"></div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
